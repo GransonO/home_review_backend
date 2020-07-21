@@ -1,3 +1,3 @@
 release: bash ./release-tasks.sh
-web: gunicorn fluid.wsgi —-log-file -
-worker: python3 manage.py qcluster
+web: gunicorn home_review.wsgi —-log-file -
+worker: python manage.py qcluster
