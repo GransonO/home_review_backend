@@ -41,6 +41,7 @@ ruamel.yaml==0.15.100
 sendgrid==6.0.5
 six==1.12.0
 spacy==2.3.2
+https://github.com/explosion/spacy-models/releases/download/en_core_web_md-2.0.0/en_core_web_md-2.0.0.tar.gz#egg=en_core_web_md==2.0.0
 sqlparse==0.3.0
 srsly==1.0.2
 thinc==7.4.1

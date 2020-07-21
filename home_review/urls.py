@@ -20,7 +20,7 @@ from django.urls import path, include
 from .apps.text_process import urls as process_urls
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    path('^admin/', admin.site.urls),
 
     path(
         'text_process/',
