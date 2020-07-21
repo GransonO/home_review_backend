@@ -17,7 +17,7 @@ class Processing(views.APIView):
     @staticmethod
     def post(request):
 
-        nlp = spacy.load('en')
+        nlp = spacy.load('en_core_web_sm')
         profanity_filter = ProfanityFilter(nlps={'en': nlp})  # reuse Spacy Language (optional)
         nlp.add_pipe(profanity_filter.spacy_component, last=True)
 
