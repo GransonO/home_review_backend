@@ -1,7 +1,4 @@
-# import bugsnag
-from spacy import load
-import en_core_web_sm
-from profanity_filter import ProfanityFilter
+from leoprofanity import LeoProfanity
 from rest_framework import views, status
 from rest_framework.response import Response
 
@@ -17,16 +14,11 @@ class Processing(views.APIView):
 
     @staticmethod
     def post(request):
-
-        nlp = en_core_web_sm.load()
-        profanity_filter = ProfanityFilter(nlps={'en': nlp})  # reuse Spacy Language (optional)
-        nlp.add_pipe(profanity_filter.spacy_component, last=True)
-
+        fil = LeoProfanity()
         passed_data = request.data
-        body = passed_data['body']
 
-        doc = nlp(body)
-        is_profane = doc._.is_profane
+        body = passed_data['body']
+        is_profane = fil.check(body)
 
         print("The passedData is ----------------------------: {}".format(passed_data))
         return Response({"isProfane": is_profane}, status.HTTP_200_OK)
