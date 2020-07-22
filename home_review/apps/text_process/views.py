@@ -18,7 +18,15 @@ class Processing(views.APIView):
         passed_data = request.data
 
         body = passed_data['body']
+        words_list = body.split()
+        fill_words = fil.list()
+        z_list = []
+
+        for x in words_list:
+            if x in fill_words:
+                z_list.append(x)
+
         is_profane = fil.check(body)
 
         print("The passedData is ----------------------------: {}".format(passed_data))
-        return Response({"isProfane": is_profane}, status.HTTP_200_OK)
+        return Response({"isProfane": is_profane, "words": z_list}, status.HTTP_200_OK)
