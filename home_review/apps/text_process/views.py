@@ -10,7 +10,7 @@ class Processing(views.APIView):
     def get(request):
         passed_data = request.data
         print("The passedData is ----------------------------: {}".format(passed_data))
-        return Response({"GET"}, status.HTTP_200_OK)
+        return Response({"The server is woke as needed"}, status.HTTP_200_OK)
 
     @staticmethod
     def post(request):
