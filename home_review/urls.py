@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from .apps.text_process import urls as process_urls
+from .apps.mpesa import urls as mpesaUrls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +27,9 @@ urlpatterns = [
         'text_process/',
         include(process_urls),
         name='process'),
+
+    path(
+        'mpesa_callback/',
+        include(mpesaUrls),
+        name="mpesaUrls"),
 ]

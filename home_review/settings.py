@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # created apps
     'home_review.apps.text_process',
+    'home_review.apps.mpesa',
 
     # third party apps
     'corsheaders',
