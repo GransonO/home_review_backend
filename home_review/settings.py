@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,6 +25,13 @@ SECRET_KEY = '&=fv0nxqo$gqq9tqxjpjnuzc8_%r!t2c#46g!wh5klr^luh&_v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
 
 ALLOWED_HOSTS = []
 
@@ -92,12 +100,19 @@ ALLOWED_HOSTS = ["*"]
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    # read the database environ
+    'default': env.db()
 }
+
 
 
 # Password validation
