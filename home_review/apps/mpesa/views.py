@@ -18,7 +18,7 @@ class MpesaCallback(views.APIView):
         passedData = request.data
         print("The passedData is -------------: {}".format(passedData))
 
-        body = passedData['Body']
+        # body = passedData['Body']
         # callback_body = body['stkCallback']
         # MerchantRequestID = callback_body['MerchantRequestID']
         # ResultCode = callback_body['ResultCode']
