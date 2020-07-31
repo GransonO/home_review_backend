@@ -19,25 +19,25 @@ class MpesaCallback(views.APIView):
         print("The passedData is -------------: {}".format(passedData))
 
         body = passedData['Body']
-        callback_body = body['stkCallback']
-        MerchantRequestID = callback_body['MerchantRequestID']
-        ResultCode = callback_body['ResultCode']
-        ResultDesc = callback_body['ResultDesc']
-        CallbackMetadata = callback_body['CallbackMetadata']
-
-        Item = CallbackMetadata['Item']
-        Amount = Item[0]['Value']
-        MpesaReceiptNumber = Item[1]['Value']
-        TransactionDate = Item[3]['Value']
-        PhoneNumber = Item[4]['Value']
+        # callback_body = body['stkCallback']
+        # MerchantRequestID = callback_body['MerchantRequestID']
+        # ResultCode = callback_body['ResultCode']
+        # ResultDesc = callback_body['ResultDesc']
+        # CallbackMetadata = callback_body['CallbackMetadata']
+        #
+        # Item = CallbackMetadata['Item']
+        # Amount = Item[0]['Value']
+        # MpesaReceiptNumber = Item[1]['Value']
+        # TransactionDate = Item[3]['Value']
+        # PhoneNumber = Item[4]['Value']
         mpesa_data = MpesaEntryDB(
-            MerchantRequestID=MerchantRequestID,
-            ResultCode=ResultCode,
-            ResultDesc=ResultDesc,
-            Amount=Amount,
-            MpesaReceiptNumber=MpesaReceiptNumber,
-            TransactionDate=TransactionDate,
-            Client_phone=PhoneNumber
+            MerchantRequestID=1010,  # MerchantRequestID,
+            ResultCode=1010,  # ResultCode,
+            ResultDesc=1010,  # ResultDesc,
+            Amount=100,  # Amount,
+            MpesaReceiptNumber=1234,  # MpesaReceiptNumber,
+            # TransactionDate=TransactionDate,
+            Client_phone='0728376473'  # PhoneNumber
         )
         mpesa_data.save()
         return Response({"DONE"}, status.HTTP_200_OK)

@@ -3,19 +3,17 @@ from datetime import datetime
 
 
 class MpesaEntryModel(models.Model):
-    MerchantRequestID = models.CharField(
-        unique=True, max_length=250, default='non')
+    """ Merchant Request ID """
+    MerchantRequestID = models.CharField(unique=True, max_length=250, default='non')
 
 
 class MpesaEntryDB(models.Model):
-
-    MerchantRequestID = models.CharField(
-        unique=True, max_length=250, default='non')
+    """ Mpesa Receipt Number """
+    MerchantRequestID = models.CharField(unique=True, max_length=250, default='non')
     ResultCode = models.IntegerField(default='1')
     ResultDesc = models.CharField(max_length=250, default='non')
     Amount = models.FloatField(default=0.0)
-    MpesaReceiptNumber = models.CharField(
-        unique=True, max_length=250, default='non')
+    MpesaReceiptNumber = models.CharField(unique=True, max_length=250, default='non')
     TransactionDate = models.CharField(max_length=250, default='non')
     Client_phone = models.CharField(max_length=250, default='non')
     request_date = models.DateTimeField(default=datetime.now)
