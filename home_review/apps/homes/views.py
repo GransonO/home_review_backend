@@ -86,7 +86,7 @@ class HomesView(views.APIView):
 
     @staticmethod
     def send_email(email, name):
-        subject = 'Rated Homes Support'.format(name)
+        subject = 'Rated Homes'.format(name)
         message = EmailTemplates.home_email(name)
         email_from = settings.EMAIL_HOST_USER
         recipient_list = [email, ]

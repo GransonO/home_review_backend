@@ -33,8 +33,7 @@ env = environ.Env(
 
 environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['165.22.211.60', 'localhost', '*', '127.0.0.1']
 
 # Application definition
 
