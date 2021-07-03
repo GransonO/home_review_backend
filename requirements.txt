@@ -57,7 +57,7 @@ thinc==7.4.1
 threadpoolctl==2.1.0
 tomlkit==0.5.11
 tqdm==4.48.0
-urllib3==1.25.3
+urllib3==1.26.5
 wasabi==0.7.1
 WebOb==1.8.5
 whitenoise==4.1.2
