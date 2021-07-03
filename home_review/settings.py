@@ -47,8 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # created apps
+    'home_review.apps.authentication',
     'home_review.apps.text_process',
-    'home_review.apps.mpesa',
+    'home_review.apps.support',
+    'home_review.apps.reviews',
+    'home_review.apps.homes',
 
     # third party apps
     'corsheaders',
@@ -95,24 +98,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'home_review.wsgi.application'
 CORS_ORIGIN_ALLOW_ALL = True
-ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*"]
+AUTH_USER_MODEL = 'authentication.User'
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+]
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.ModelBackend',
+    )
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 
 DATABASES = {
     # read the database environ
     'default': env.db()
 }
-
 
 
 # Password validation
@@ -169,3 +171,11 @@ STATICFILES_DIRS = (
 
 # Efficiently resizes the served static files.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Email data
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ratedhomeske@gmail.com'
+EMAIL_HOST_PASSWORD = 'ratedHomeske2021*'
+DEFAULT_FROM_EMAIL = 'default from email'

@@ -9,7 +9,7 @@ class Processing(views.APIView):
     @staticmethod
     def get(request):
         passed_data = request.data
-        print("The passedData is ----------------------------: {}".format(passed_data))
+        print("The passedData is ------------------: {}".format(passed_data))
         return Response({"The server is woke as needed"}, status.HTTP_200_OK)
 
     @staticmethod
@@ -28,5 +28,8 @@ class Processing(views.APIView):
 
         is_profane = fil.check(body)
 
-        print("The passedData is ----------------------------: {}".format(passed_data))
-        return Response({"isProfane": is_profane, "words": z_list}, status.HTTP_200_OK)
+        return Response(
+            {
+                "isProfane": is_profane,
+                "words": z_list
+            }, status.HTTP_200_OK)
