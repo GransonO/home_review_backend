@@ -13,7 +13,7 @@ bugsnag==4.1.0
 cached-property==1.5.2
 catalogue==2.0.4
 cement==2.8.2
-certifi==2021.5.30
+certifi==2022.12.7
 cffi==1.14.6
 channels==3.0.4
 channels-redis==3.3.1
